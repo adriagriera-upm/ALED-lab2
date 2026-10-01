@@ -33,7 +33,7 @@ public class SkeletonVisualizer {
 		// Hip (root)
 		Segment hip = new Segment(0, Math.toRadians(0));
 		// Torso
-		Segment torso = new Segment(120, Math.toRadians(-90)); // Upwards, in screen coordinates, Y is down
+		Segment torso = new Segment(120, Math.toRadians(- 90)); // Upwards, in screen coordinates, Y is down
 		hip.addChild(torso);
 		// Neck
 		Segment neck = new Segment(40, Math.toRadians(0));

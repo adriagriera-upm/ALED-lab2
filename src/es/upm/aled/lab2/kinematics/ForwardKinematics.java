@@ -40,20 +40,21 @@ public class ForwardKinematics {
 		double newAngle= accumulatedAngle + link.getAngle();
 		double newX= baseX + link.getLength()*Math.cos(newAngle);
 		double newY= baseY + link.getLength()*Math.sin(newAngle);
+		Node newNode = new Node(newX,newY);
 		
 		//Caso base: no hay más hijos
-		if(link.getChildren().isEmpty()) {
-			return new Node(newX, newY);
+		if(link.getChildren().size() == 0) {
+			return newNode;
 		}
 		
 		//Caso recursivo
 		else {
 			for(Segment child : link.getChildren()) {
 				Node descendantNode = computePositions(child,newX,newY,newAngle);
-				progenitorNode.addChild(descendantNode);
+				newNode.addChild(descendantNode);
 				
 			} 
-			return progenitorNode;
+			return newNode;
 		}
 	}
 	
